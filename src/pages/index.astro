@@ -1,11 +1,41 @@
 ---
+import "../styles/index.css"
 import MainLayout from "../layouts/MainLayout.astro";
+import Ticket_card from "../components/Ticket_card.astro";
 import Footer from "../components/Footer.astro";
 ---
 
 <MainLayout>
-  <h1>Forside</h1>
+  <div class="hero_section">
+  <img src="images/tegning.svg" alt="index_tegning">
+  <div class="hero_text">
+  <h1>Distortion</h1>
+  <p>4 -8 JUNE 25</p>
+  </div>
+  </div>
+  <h2> TICKETS</h2>
+  <Ticket_card title="FESTIVAL PASS" price="950 DKK"></Ticket_card>
+  <Ticket_card title="Ø WEEKEND TICKET" price="750 DKK"></Ticket_card>
   <Footer>
-
   </Footer>
 </MainLayout>
+
+<style>
+
+.hero_section{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.hero_section img{
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.hero_text{
+  grid-column: 1;
+  grid-row: 1;
+  align-self: end;
+}
+</style>

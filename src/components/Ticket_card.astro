@@ -1,0 +1,60 @@
+---
+/* her er componets props*/
+const{title}= Astro.props;
+const{price}= Astro.props;
+---
+<section>
+    <div><p class="text_style"> 2025 BLIND BIRD </p></div>
+
+    <div id="overskrift"> <p>{title}</p></div>
+
+    <div>
+<p class="text_style">VALID FOR :</p>
+<p class="text_style">Distortion Ø</p>
+<p class="text_style">Distortion X</p>
+<p class="text_style">Club events</p>
+    </div>
+
+    <div id="overskrift_pris"><p>{price}</p></div>
+
+    <button>
+        PURCHASE
+    </button>
+</section>
+
+<style>
+    /* ticket card info*/
+    .text_style{
+        font-size: 16px;
+    }
+
+#overskrift{
+    font-size: 20px;
+}
+
+#overskrift_pris{
+    font-size:30px;
+}
+
+    /*ticket card box*/
+section{
+   text-align: center;
+   border: 1px solid black;
+   padding: 1rem;
+   margin: 2rem;
+}
+  /*button*/
+
+  button{
+    margin-inline: auto;
+    display: flex;
+    width: 150px;
+    padding: 12px 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 24px;
+    border: 2px solid #FFF;
+  }
+
+</style>
