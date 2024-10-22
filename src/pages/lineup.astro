@@ -1,7 +1,41 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+// import Card
+
+const url = "https://trjrkakdlpavygfthheg.supabase.co/rest/v1/distortion-artists";
+const apiKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRyanJrYWtkbHBhdnlnZnRoaGVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjk1ODUyMTQsImV4cCI6MjA0NTE2MTIxNH0.h1EudiiVkfsh6YijqS_2OGDOm8qknymy7mSWQ6bcmk0";
+
+let data = [];
+
+// prøver at hente data fra apiUrl og apiKey
+try {
+  const response = await fetch(url, {
+    method: "GET",
+    headers: {
+      apikey: apiKey,
+    },
+  });
+
+  console.log("Response status:", response.status); // Tjekker status på response
+
+  data = await response.json(); // konverterer response til json og lagrer i variabel "data"
+
+  console.log("Fetched data:", data); // Laver en console.log på fetched data
+
+  if (!Array.isArray(data)) {
+    throw new Error("Fetched data is not an array");
+  }
+} catch (error) {
+  console.error("Error fetching or processing data:", error);
+  data = []; // Sørger for at datan er en tom array, hvis der sker fejl (error)
+}
 ---
 
 <MainLayout>
   <h1>Line Up</h1>
+
+  <!-- <section class="lineup">
+    {data.length > 0 ? data.map((title) => <Card id={title.id} images={title.image} />)}
+  </section> -->
 </MainLayout>

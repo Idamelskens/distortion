@@ -1,0 +1,42 @@
+---
+// @ts-nocheck
+import MainLayout from "../layouts/MainLayout.astro";
+
+export async function getStaticPaths() {
+  const url = "https://trjrkakdlpavygfthheg.supabase.co/rest/v1/distortion-artists";
+  const apiKey =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRyanJrYWtkbHBhdnlnZnRoaGVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjk1ODUyMTQsImV4cCI6MjA0NTE2MTIxNH0.h1EudiiVkfsh6YijqS_2OGDOm8qknymy7mSWQ6bcmk0";
+
+  const response = await fetch(`${url}`, {
+    headers: {
+      apikey: apiKey,
+    },
+  });
+
+  const data = await response.json();
+
+  return data.map((onePost) => {
+    return {
+      params: { artist: onePost.artist }, // [artist]=artist.slug
+      props: { post: onePost },
+    };
+    // send al data med som props
+  });
+}
+const { post } = Astro.props;
+console.log(post); // artist.name, artist.image osv.
+---
+
+<MainLayout>
+  <section>
+    <h1>{post.title}</h1>
+    <img src={post.og_image.url} alt="" />
+  </section>
+</MainLayout>
+
+<style>
+  section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+</style>

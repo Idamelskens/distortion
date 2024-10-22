@@ -1,0 +1,9 @@
+body {
+    background-image: url(../images/background.webp);
+  }
+
+  img {
+    width: 100%;
+    display: block;
+    height: auto;
+  }
