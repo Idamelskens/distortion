@@ -38,9 +38,11 @@ console.log(post); // artist.name, artist.image osv.
       <h2>{post.genre}</h2>
       <h2>{post.stage}</h2>
       <p>{post.content}</p>
-      <Buttons size="sm">Hej med dig</Buttons>
-      <Buttons size="lg">Hej med dig</Buttons>
+      <Buttons size="sm">GET TICKETS</Buttons>
+      <Buttons size="sm">LINE UP</Buttons>
     </div>
+    <Buttons class="Back" size="lg">BACK</Buttons>
+
 
     <!-- <img src={post.og_image.url} alt="" /> -->
   </section>
@@ -49,6 +51,47 @@ console.log(post); // artist.name, artist.image osv.
 <style>
   section {
     display: grid;
+    gap: 2rem;
     grid-template-columns: 1fr 1fr;
+  }
+
+  p {
+    max-width: 65ch;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+    color: rgb(243, 235, 235);
+  }
+
+  img {
+    width: 480px;
+  }
+
+  h1 {
+    font-size: xx-large;
+  }
+
+  .Back {
+    margin-top: 70px;
+
+  }
+
+
+
+  @media (max-width: 800px) {
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    img {
+      width 50%
+    }
+
+    section {
+      display: flex;
+      flex-direction: column;
+    }
+
+
   }
 </style>
