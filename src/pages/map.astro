@@ -1,7 +1,26 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/index.css";
 ---
 
 <MainLayout>
-  <h1>Map</h1>
+  <div>
+    <h1>Map</h1>
+  </div>
+  <img src="/public/images/map.svg" alt="map" />
+
+  <Footer />
 </MainLayout>
+
+<style>
+  body {
+    background-image: url(/public/images/background.webp);
+  }
+
+  img {
+    width: 100%;
+    display: block;
+    height: auto;
+  }
+</style>
