@@ -1,0 +1,120 @@
+---
+const { data } = Astro.props;
+---
+
+
+<article>
+    <div class="image">
+        <div class="tags">
+            <p>{data.genre}</p>
+            <p>{data.country}</p>
+        </div>
+        <img src={data.image} alt="">
+    </div>
+
+    <div class="info">
+        <p>{data.stage}</p>
+        <h2>{data.title}</h2>
+        <p>{data.date} • {data.time}</p>
+        <div class="card_bttns">
+            <button class="tickets"><a href="#">Tickets</a></button>
+            <button class="read-more"><a href={`/lineup/${data.id}`}>Read More</a></button>
+        </div>
+    </div>
+    
+</article>
+
+
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    
+    article{
+        display: flex;
+        gap: 10px;
+        margin: 20px auto;
+        max-width: 340px;
+        max-height: 160px;
+        align-items: center;
+        color: white;
+        background-color: #45B9FF;
+        font-family: sans-serif;
+    }
+
+    /* article:hover{
+        scale: 2;
+    } */
+
+    h2 {
+        font-size: 14pt;
+        text-transform: uppercase;
+    }
+    p{
+        font-size: 8pt;
+    }
+
+    img {
+        width: 160px;
+        display: block;
+
+    }
+    .tags{
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+        position: relative;
+        top: -300px;
+        padding: 0 20px;
+    }
+
+        
+    .image {
+        max-width: 300px;
+        max-height: 300px;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+    .tags p{
+        border-radius: 50px;
+        background-color: #FD3E2E;
+        padding: 2px 8px;
+        max-width: 70px;
+        font-size: 5pt;
+        display: none;
+    }
+    .info{
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    .card_bttns{
+        margin: 10px 0px;
+    }
+
+    .card_bttns a{
+        font-size: 10px;
+        text-decoration: none;
+        color: white;
+    }
+    .card_bttns a:visited{
+        color: white;
+        
+    }
+    .tickets{
+        text-transform: uppercase;
+        border: none;
+        border-radius: 50px;
+        padding: 5px 10px;
+        background: #FD3E2E;
+    }
+    .read-more{
+        border: none;
+        background-color: rgba(255, 255, 255, 0);
+        padding: 4px 9px;
+    }
+</style>
