@@ -1,7 +1,6 @@
 ---
 // @ts-nocheck
-import MainLayout from "../layouts/MainLayout.astro";
-
+import MainLayout from "../../layouts/MainLayout.astro";
 export async function getStaticPaths() {
   const url = "https://trjrkakdlpavygfthheg.supabase.co/rest/v1/distortion-artists";
   const apiKey =
@@ -15,10 +14,10 @@ export async function getStaticPaths() {
 
   const data = await response.json();
 
-  return data.map((onePost) => {
+  return data.map((post) => {
     return {
-      params: { artist: onePost.artist }, // [artist]=artist.slug
-      props: { post: onePost },
+      params: { single: post.id },
+      props: { post },
     };
     // send al data med som props
   });
@@ -30,7 +29,8 @@ console.log(post); // artist.name, artist.image osv.
 <MainLayout>
   <section>
     <h1>{post.title}</h1>
-    <img src={post.og_image.url} alt="" />
+    <h2>{post.genre}</h2>
+    <!-- <img src={post.og_image.url} alt="" /> -->
   </section>
 </MainLayout>
 
