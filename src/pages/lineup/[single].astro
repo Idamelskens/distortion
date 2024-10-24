@@ -1,6 +1,7 @@
 ---
 // @ts-nocheck
 import MainLayout from "../../layouts/MainLayout.astro";
+import Footer from "../components/Footer.astro";
 export async function getStaticPaths() {
   const url = "https://trjrkakdlpavygfthheg.supabase.co/rest/v1/distortion-artists";
   const apiKey =
@@ -28,8 +29,16 @@ console.log(post); // artist.name, artist.image osv.
 
 <MainLayout>
   <section>
-    <h1>{post.title}</h1>
-    <h2>{post.genre}</h2>
+    <div>
+      <img src={post.image} alt="" />
+    </div>
+    <div>
+      <h1>{post.title}</h1>
+      <h2>{post.genre}</h2>
+      <h2>{post.stage}</h2>
+      <p>{post.content}</p>
+    </div>
+
     <!-- <img src={post.og_image.url} alt="" /> -->
   </section>
 </MainLayout>
