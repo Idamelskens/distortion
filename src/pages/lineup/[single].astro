@@ -1,6 +1,7 @@
 ---
 // @ts-nocheck
 import Buttons from "../../components/Buttons.astro";
+import Navigation from "../../components/Navigation.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
 
 export async function getStaticPaths() {
@@ -27,7 +28,6 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 console.log(post); // artist.name, artist.image osv.
 ---
-
 <MainLayout>
   <section>
     <div>
@@ -69,8 +69,12 @@ console.log(post); // artist.name, artist.image osv.
 
   h1 {
     font-size: xx-large;
+    margin-bottom: 20px;
   }
 
+  h2 {
+    margin-bottom: 10px;
+  }
   .Back {
     margin-top: 70px;
 
@@ -90,6 +94,10 @@ console.log(post); // artist.name, artist.image osv.
     section {
       display: flex;
       flex-direction: column;
+    }
+
+    p {
+      padding: 10px;
     }
 
 
