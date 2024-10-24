@@ -1,5 +1,6 @@
 ---
 // @ts-nocheck
+import Buttons from "../../components/Buttons.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
 import Footer from "../components/Footer.astro";
 export async function getStaticPaths() {
@@ -37,6 +38,8 @@ console.log(post); // artist.name, artist.image osv.
       <h2>{post.genre}</h2>
       <h2>{post.stage}</h2>
       <p>{post.content}</p>
+      <Buttons size="sm">Hej med dig</Buttons>
+      <Buttons size="lg">Hej med dig</Buttons>
     </div>
 
     <!-- <img src={post.og_image.url} alt="" /> -->

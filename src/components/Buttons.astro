@@ -1,8 +1,8 @@
 ---
-const { variant } = Astro.props;
+const { variant, size } = Astro.props;
 ---
 
-<a class={variant}>
+<a data-variant={variant} data-size={size}>
   <slot />
 </a>
 
@@ -15,5 +15,17 @@ const { variant } = Astro.props;
     gap: 6.049px;
     border-radius: 18.146px;
     background: #000;
+    color: #fff;
+  }
+
+  [data-variant="primary"] {
+    background: red;
+  }
+  [data-size="sm"] {
+    font-size: 1rem;
+  }
+  [data-size="lg"] {
+    font-size: 1.5rem;
+    padding: 2rem;
   }
 </style>
