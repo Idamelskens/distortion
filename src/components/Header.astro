@@ -1,0 +1,59 @@
+---
+
+---
+
+<header>
+  <div class="header">
+    <div class="logo_container">
+      <img src="logo.svg" alt="logo" />
+    </div>
+    <div class="burger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </div>
+  <nav class="hidden">
+    <ul>
+      <li><a href="/lineup">Line up</a></li>
+      <li><a href="/map">Map</a></li>
+      <li><a href="/ticket">Buy Ticket</a></li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  document.querySelector(".burger").addEventListener("click", () => {
+    document.querySelector("nav").classList.toggle("hidden");
+  });
+</script>
+
+<style>
+  .burger {
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  .burger .line {
+    width: 100%;
+    height: 2px;
+    background-color: #000000;
+    margin-top: 5px;
+    transition: 0.2s linear;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  img {
+    width: 40%;
+  }
+</style>
