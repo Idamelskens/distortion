@@ -14,9 +14,13 @@ const data = await fetch(url, {
 ---
 
 <MainLayout>
-  <h1>Line Up</h1>
-  <p>Distortion 2025</p>
-  <h2>4 - 8 June</h2>
+  <div class="subheader">
+    <h1>Line Up</h1>
+    .
+    <p>Distortion 2025</p>
+    <h2>4 - 8 June</h2>
+  </div>
+  
   <div class="dates">
     <a href="#wed">Wednesday 4/6</a>
     <a href="#thu">Thursday 5/6</a>
@@ -26,35 +30,63 @@ const data = await fetch(url, {
   
 
   <h2 id="wed">Wednesday 4/6</h2>
-  <h2 id="thu">Thursday 5/6</h2>
-  <h2 id="fri">Friday 6/6</h2>
-  <h2 id="sat">Saturday 7/6</h2>
-
   <section class="lineup">
     {
       data.map((artist) => <Card data={artist} />)
     }
   </section>
+
+  <h2 id="thu">Thursday 5/6</h2>
+  <section class="lineup">
+    {
+      data.map((artist) => <Card data={artist} />)
+    }
+  </section>  
+
+  <h2 id="fri">Friday 6/6</h2>
+  <section class="lineup">
+    {
+      data.map((artist) => <Card data={artist} />)
+    }
+  </section>
+
+  <h2 id="sat">Saturday 7/6</h2>
+  <section class="lineup">
+    {
+      data.map((artist) => <Card data={artist} />)
+    }
+  </section>
+
   <Footer>
   </Footer>
 </MainLayout>
 
 <style>
+  *{
+    color: white;
+  }
   h1{
     margin: auto;
     text-align: center;
     text-transform: uppercase;
     font-family: sans-serif;
   }
-
-  .dates
+  .dates{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
   .dates a, .dates a:visited{
     color:white;
     font-family: sans-serif;
+    text-align: center;
     text-decoration: none;
-    padding: 12px 30px;
+    max-width: ;
+    padding: 12px 15px;
 
-    border: solid white 2px;
+    border: solid white 3px;
     border-radius: 50px;
+    width: 120px;
   }
 </style>
