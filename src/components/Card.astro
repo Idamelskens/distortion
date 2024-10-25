@@ -18,7 +18,7 @@ const { data } = Astro.props;
         <p>{data.date} • {data.time}</p>
         <div class="card_bttns">
             <button class="tickets"><a href="#">Tickets</a></button>
-            <button class="read-more"><a href={`/lineup/${data.id}`}>Read More</a></button>
+            <button class="read-more"><a href={`/lineup/${data.id}`}>Read More</a><img src="arrow.svg" alt=""></button>
         </div>
     </div>
     
@@ -54,6 +54,7 @@ const { data } = Astro.props;
     }
     p{
         font-size: 8pt;
+        opacity: 75%;
     }
 
     img {
@@ -65,12 +66,11 @@ const { data } = Astro.props;
         display: flex;
         gap: 10px;
         justify-content: flex-end;
-        position: relative;
-        top: -300px;
+        position:relative;
+        top: 20px;
         padding: 0 20px;
-    }
 
-        
+    }   
     .image {
         max-width: 300px;
         max-height: 300px;
@@ -94,9 +94,11 @@ const { data } = Astro.props;
     }
     .card_bttns{
         margin: 10px 0px;
+        display: flex;
     }
 
     .card_bttns a{
+        display: flex;
         font-size: 10px;
         text-decoration: none;
         color: white;
@@ -116,5 +118,28 @@ const { data } = Astro.props;
         border: none;
         background-color: rgba(255, 255, 255, 0);
         padding: 4px 9px;
+        align-items: center;
+        display: flex;
+        gap: 5px;
+    }
+    button img{
+        width: 8px;
+    }
+
+    /* ----- Desktop Verions ----- */
+    @media (min-width:1000px){
+        article{
+            scale:2;
+            margin: 150px auto 200px auto;
+        }
+        .lineup{
+            display: flex;
+        }
+        .tickets, .read-more{
+            transition-duration: .2s;
+        }
+        .tickets:hover, .read-more:hover{
+            scale: 1.075;
+        }
     }
 </style>
