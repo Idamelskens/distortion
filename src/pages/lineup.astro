@@ -2,7 +2,7 @@
 import Card from "../components/Card.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import Footer from "../components/Footer.astro";
-// import Card
+// import Card 
 
 const url = "https://trjrkakdlpavygfthheg.supabase.co/rest/v1/distortion-artists";
 const apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRyanJrYWtkbHBhdnlnZnRoaGVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjk1ODUyMTQsImV4cCI6MjA0NTE2MTIxNH0.h1EudiiVkfsh6YijqS_2OGDOm8qknymy7mSWQ6bcmk0";
@@ -11,17 +11,21 @@ const data = await fetch(url, {
     apikey: apiKey
   }
 }).then(res=>res.json())
+
+const wednesdayArtists = data.filter((a) => a.day === "wednesday");
+const thursdayArtists = data.filter((a) => a.day === "thursday");
+const fridayArtists = data.filter((a) => a.day === "friday");
+const saturdayArtists = data.filter((a) => a.day === "saturday");
 ---
 
 <MainLayout>
   <div class="subheader">
     <h1>Line Up</h1> 
-    .
     <p>Distortion 2025</p>
     <h2>4 - 8 June</h2>
   </div>
   
-  <div class="dates">
+  <div class="dates"> <!-- Buttons -->
     <a href="#wed">Wednesday 4/6</a>
     <a href="#thu">Thursday 5/6</a>
     <a href="#fri">Friday 6/6</a>
@@ -31,51 +35,68 @@ const data = await fetch(url, {
 
   <h2 id="wed">Wednesday 4/6</h2>
   <section class="lineup">
-    {
-      data.map((artist) => <Card data={artist} />)
-    }
+    <!-- {data.map((artist) => <Card data={artist} />)} -->
+     {wednesdayArtists.map((artist) => <Card data={artist} />)}
   </section>
 
   <h2 id="thu">Thursday 5/6</h2>
   <section class="lineup">
-    {
-      data.map((artist) => <Card data={artist} />)
-    }
+    <!-- {data.map((artist) => <Card data={artist} />)} -->
+    {thursdayArtists.map((artist) => <Card data={artist} />)}
   </section>  
 
   <h2 id="fri">Friday 6/6</h2>
   <section class="lineup">
-    {
-      data.map((artist) => <Card data={artist} />)
-    }
+    <!-- {data.map((artist) => <Card data={artist} />)} -->
+    {fridayArtists.map((artist) => <Card data={artist} />)}
   </section>
 
   <h2 id="sat">Saturday 7/6</h2>
   <section class="lineup">
-    {
-      data.map((artist) => <Card data={artist} />)
-    }
+    <!-- {data.map((artist) => <Card data={artist} />)} -->
+    {saturdayArtists.map((artist) => <Card data={artist} />)}
   </section>
 
-  <Footer>
-  </Footer>
 </MainLayout>
 
 <style>
   *{
     color: white;
+    font-family: sans-serif;
+  }
+  
+  .subheader{
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .subheader p{
+    font-size: 14pt;
+    margin-top: 40px;
+    margin-bottom: -30px;
+  }
+  .subheader h2{
+    font-size: 32pt;
   }
   h1{
     margin: auto;
     text-align: center;
     text-transform: uppercase;
     font-family: sans-serif;
+    font-size: 48pt;
   }
+  #wed,#thu,#fri,#sat{
+    text-align: center;
+    font-size: 36pt;
+    margin-top: 70px;
+    margin-bottom: 0px;
+  }
+
   .dates{
     display:flex;
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
+    margin-bottom: 70px;
   }
   .dates a, .dates a:visited{
     color:white;
@@ -88,5 +109,33 @@ const data = await fetch(url, {
     border: solid white 3px;
     border-radius: 50px;
     width: 120px;
+    transition-duration: .5s;
   }
+  .dates a:hover{
+    color: #303030;
+    background-color: white;
+  }
+
+  /* ----- Desktop Verions ----- */
+  @media (min-width:1000px){
+    h1{
+      font-size: 96pt;
+      margin-top: 50px;
+    }
+    .subheader h2{
+      font-size: 64pt;
+    }
+    .subheader p{
+      font-size: 28pt;
+      margin-bottom: -60px;
+    }
+    .dates{
+      scale: 1.2;
+    }
+    #wed,#thu,#fri,#sat{
+      font-size: 48pt;
+      margin-top: 150px;
+    }
+  }
+
 </style>
